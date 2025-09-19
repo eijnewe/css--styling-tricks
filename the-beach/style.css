@@ -51,6 +51,12 @@ body {
     width: 3rem;
     clip-path: circle();
     color: var(--primary-color);
+    transition: all 0.5s ease-in-out;
+}
+
+.animate-logo {
+    transform: scale(1.5) rotateY(360deg);
+    background-color: black;
 }
 
 .header h4 {
@@ -60,8 +66,54 @@ h1 {
     font-size: 6em;
 }
 
+.header {
+    position: relative;
+}
+
 .paper-plane {
+    position: absolute;
     width: 2em;
+    left: 0;
+    transform: translateY(-50%) scaleX(1);
+    animation: fly 6s infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes fly {
+    0% {
+        left: 0;
+        transform: translateY(-50%) scaleX(1);
+    }
+
+    5% {
+        left: 0;
+        transform: translateY(-50%) scaleX(1);
+    }
+
+    45% {
+        left: calc(100% - 2em);
+        transform: translateY(-50%) scaleX(1);
+    }
+
+    50% {
+        left: calc(100% - 2em);
+        transform: translateY(-50%) scaleX(-1);
+    }
+
+    55% {
+        left: calc(100% - 2em);
+        transform: translateY(-50%) scaleX(-1);
+    }
+
+    95% {
+        left: 0;
+        transform: translateY(-50%) scaleX(-1);
+    }
+
+    100% {
+        left: 0;
+        transform: translateY(-50%) scaleX(1);
+    }
 }
 
 .mid-container {
@@ -82,9 +134,21 @@ h1 {
 .carousel-track {
     display: flex;
     gap: 1rem;
+    padding-right: 1rem;
     width: max-content;
     will-change: transform;
-    animation: scroll 10s linear infinite;
+    animation: scroll 5s linear infinite;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+        /*     -webkit-transform: translateX(-50%); */
+    }
 }
 
 .carousel-item {
@@ -111,6 +175,7 @@ h1 {
     border-radius: 0.25rem;
     padding: 0.5rem;
     margin: 1rem;
+    transition: all 0.5s ease-in-out;
 }
 
 .name {
@@ -130,6 +195,7 @@ h1 {
     color: var(--primary-color);
     margin: 0;
     padding: 1rem;
+    transition: all 0.5s ease-in-out;
 }
 
 .carousel-item:hover p {
@@ -158,6 +224,8 @@ button {
     background-color: var(--primary-color);
     color: white;
     font-weight: bold;
+    border-radius: 0 0.25rem 0.25rem 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .cta {
@@ -172,11 +240,11 @@ button {
 }
 
 .cta:hover {
-scale: 1.05;
+    transform: scale(1.05) rotate(2deg);
 }
 
 .cta div:hover {
-  background-color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 .cta div {
@@ -184,8 +252,8 @@ scale: 1.05;
     display: flex;
     align-items: center;
     justify-content: center;
-        background-color: var(--white-opacity);
-
+    background-color: var(--white-opacity);
+    transition: all 0.3s ease-in-out;
 }
 .cta div:last-child {
     background-color: white;
@@ -203,7 +271,6 @@ scale: 1.05;
     color: rgba(0, 0, 0, 0.5);
     width: 60vw;
     border-radius: 0.25rem;
-    overflow: hidden;
 }
 
 .search-bar > * {
@@ -216,6 +283,21 @@ scale: 1.05;
     width: 1.5em;
     fill: currentColor;
     stroke: none;
+     transition: all 0.5s ease-in;
+}
+
+.icon-container:hover svg {
+    animation: 6s fly-away;
+    transform-origin: center;
+}
+
+@keyframes fly-away {
+    from {
+        transform: translateY(0) translateX(0);
+    }
+    to {
+        transform: translateY(-1000px) translateX(1000px);
+    }
 }
 
 .select-container {
@@ -257,13 +339,4 @@ select {
 .search-bar button:hover {
     background-color: inherit;
     color: inherit;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
 }
