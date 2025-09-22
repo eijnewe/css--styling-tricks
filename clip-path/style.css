@@ -14,13 +14,25 @@ img {
     height: 400px;
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    opacity: 0.5;
+    position: relative;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.container > div:hover {
     z-index: 1;
+}
+
+.container img:hover {
+    opacity: 1;
+    scale: 1.5;
+    z-index: 10;
 }
 
 .container > div {
     width: 410px;
     height: 410px;
-    background-color: red;
     transform: translate(205px, 0);
 }
 
