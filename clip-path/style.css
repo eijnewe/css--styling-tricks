@@ -1,16 +1,52 @@
 .container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(to right, #9bad9b, #d1dad1);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(to right, #9bad9b, #d1dad1);
 }
 
 /* Bara till för att göra bilderna mer överskådliga i början.
   Ändra stylingen vid behov. */
 img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: 1;
+}
+
+.container > div {
+    width: 410px;
+    height: 410px;
+    background-color: red;
+    transform: translate(205px, 0);
+}
+
+.container > div:last-child {
+    transform: translate(-205px, 0);
+}
+
+.container > div > img {
+    width: 200px;
+    height: 200px;
+    transform: translate(100px, 0);
+}
+
+.container > div > img:nth-child(2) {
+    transform: translate(0px, 105px);
+}
+.container > div > img:last-child {
+    transform: translate(100px, 5px);
+}
+
+.container > div:first-child > img {
+    transform: translate(110px, 0);
+}
+.container > div:first-child > img:nth-child(2) {
+    transform: translate(-200px, 105px);
+}
+.container > div:first-child > img:last-child {
+    transform: translate(110px, 5px);
 }
